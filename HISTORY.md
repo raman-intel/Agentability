@@ -3,41 +3,32 @@
 ## Timeline
 
 ### Phase 1: garg-agenticai-framework (2024-2025)
-**Original Project:** Agent framework development
-**Repository:** garg-agenticai-framework
-**Focus:** Early agent system experiments and prototyping
+Original focus: Agent framework experimentation and prototyping.
 
-Key Commits:
-- Initial framework setup
-- Core agent implementations
-- [Add specific milestones from your git log]
-
-### Phase 2: Evolution to Agentability (Feb 2026)
-**New Direction:** Production observability platform
-**Repository:** Agentability (renamed from garg-agenticai-framework)
-**Focus:** Agent observability, monitoring, and debugging
-
-Major Changes:
-- Pivoted to observability use case
-- Implemented 6 core analyzers
-- Added semantic search capabilities
-- Enterprise security features
+### Phase 2: Agentability (February 2026)
+New focus: Production observability for multi-agent AI systems.
 
 ## Why the Transition?
 
-The original garg-agenticai-framework laid groundwork for understanding
-agent systems. This learning enabled us to identify the critical need for
-observability in production multi-agent systems.
+After building agent systems, we identified observability as the missing
+production layer. When agents fail, teams need to understand WHY.
 
-Agentability is the natural evolution - using deep agent expertise to
-build tools that make agent systems production-ready.
+Agentability delivers:
+- Temporal Causal Graphs
+- Regression Detection
+- Semantic Debug Search
+- PII Detection & Redaction
+- Complete Memory Tracking
 
-## Commit History
+## Git History
 
-All original commits from garg-agenticai-framework are preserved in this
-repository's git history. Use `git log` to view complete timeline.
+All original commits are fully preserved.
 
-To see original project commits:
-```bash
-git log --before="2026-02-01"
+View old commits:
+    git log --before="2026-02-01"
 
+View Agentability commits:
+    git log --after="2026-02-01"
+
+View everything:
+    git log --oneline
