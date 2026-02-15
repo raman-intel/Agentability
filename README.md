@@ -1,25 +1,39 @@
-# GARG (Goal-Augmented Reverse Generation)
+# Agentability
 
-GARG is a DSPy-style toolkit for Goal-Augmented Reverse Generation/Reasoning. This repository contains:
+**Production Observability for Multi-Agent AI Systems**
 
-- `garg_dspy/` : core library (LLM adapters, ensemble, pipeline)
-- `examples/` : runnable example
-- `tests/` : pytest tests
-- `paper/` : arXiv-ready LaTeX template and sections
-- `docs/` : Sphinx documentation skeleton
+> Formerly: garg-agenticai-framework (see HISTORY.md for project evolution)
 
-Quickstart:
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 
-```bash
-python -m pip install -e .
-python examples/run_garg_pipeline.py
-```
+---
 
-Set API keys in environment or `.env` for real provider adapters.
+## 🚀 What is Agentability?
 
-Environment variables supported:
-- OPENAI_API_KEY
-- ANTHROPIC_API_KEY
-- GOOGLE_API_KEY or GOOGLE_APPLICATION_CREDENTIALS
+Agentability is the most comprehensive observability platform for multi-agent AI systems,
+evolved from our learnings building agent frameworks.
 
-For bundling the paper, run `pdflatex` inside `paper/`.
+### Why We Built This
+
+After building garg-agenticai-framework and deploying agent systems to production, we
+discovered the critical missing piece: **observability**. When agents fail in production,
+you need to know WHY, not just WHAT happened.
+
+Agentability solves this with:
+- ✅ Temporal Causal Graphs (understand WHY decisions happened)
+- ✅ Regression Detection (catch performance drops automatically)
+- ✅ Semantic Search (find similar failures at scale)
+- ✅ PII Protection (enterprise-ready security)
+- ✅ Complete Memory Tracking (all 4 types)
+
+[Rest of your Agentability README content...]
+
+## 📜 Project History
+
+This project evolved from **garg-agenticai-framework**, our original agent framework
+exploration. See [HISTORY.md](HISTORY.md) for complete project timeline and rationale
+for the pivot to observability.
+
+All git history from the original project is preserved in this repository.
+
