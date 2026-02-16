@@ -226,81 +226,45 @@ tracker = tracer.record_memory_operation(
 ## 🏗️ Architecture
 
 ```
-flowchart TB
-
-%% =========================
-%% CLIENT LAYER
-%% =========================
-subgraph Client Layer
-    PY[Python SDK<br/>� Agent tracing<br/>� Memory logs<br/>� Conflict data]
-    TS[TypeScript SDK<br/>� Browser agents<br/>� Frontend metrics<br/>� UI telemetry]
-    GO[Go SDK (Planned)<br/>� High-perf agents<br/>� Backend services<br/>� Streaming data]
-end
-
-%% =========================
-%% INGESTION LAYER
-%% =========================
-subgraph Telemetry & Ingestion Layer
-    OTEL[OpenTelemetry Collector (Optional)<br/>� Trace normalization<br/>� Batching & sampling<br/>� Vendor-neutral ingestion]
-    DIRECT[Direct HTTP / gRPC Ingestion<br/>(SDK ? API)]
-end
-
-%% =========================
-%% CORE PLATFORM
-%% =========================
-subgraph Core Platform Layer
-    API[API Gateway / Server (FastAPI)<br/>� REST + GraphQL<br/>� WebSocket (real-time)<br/>� Auth / RBAC<br/>� Rate limiting]
-    WORKERS[Background Workers<br/>� Causal graph builder<br/>� Agent conflict detector<br/>� Memory leak analyzer<br/>� Performance scoring engine]
-end
-
-%% =========================
-%% DATA LAYER
-%% =========================
-subgraph Data Layer
-    SQLITE[SQLite<br/>� Local mode<br/>� Dev / testing]
-    DUCKDB[DuckDB<br/>� Heavy analytics<br/>� Batch analysis<br/>� ML pipelines]
-    TIMESCALE[TimescaleDB<br/>� Production scale<br/>� Time-series store<br/>� Multi-tenant]
-
-    REDIS[(Redis � Realtime cache)]
-    S3[(Object Storage � S3/GCS)]
-    VECTOR[(Vector DB � Agent memory embeddings)]
-end
-
-%% =========================
-%% VISUALIZATION
-%% =========================
-subgraph Visualization Layer
-    DASHBOARD[Dashboard (React + TypeScript + Vite)<br/>� Real-time metrics<br/>� Causal graph visualization<br/>� Memory heatmaps<br/>� Conflict matrix<br/>� Token analytics<br/>� Execution timeline]
-end
-
-%% =========================
-%% FLOWS
-%% =========================
-PY --> OTEL
-TS --> OTEL
-GO --> OTEL
-
-PY --> DIRECT
-TS --> DIRECT
-GO --> DIRECT
-
-OTEL --> API
-DIRECT --> API
-
-API --> WORKERS
-
-API --> SQLITE
-API --> DUCKDB
-API --> TIMESCALE
-
-WORKERS --> DUCKDB
-WORKERS --> TIMESCALE
-
-API --> REDIS
-API --> S3
-API --> VECTOR
-
-API --> DASHBOARD
+┌─────────────────────────────────────────────────────────┐
+│                    AGENTABILITY PLATFORM                 │
+├─────────────────────────────────────────────────────────┤
+│                                                          │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐ │
+│  │   Python SDK  │  │TypeScript SDK│  │    Go SDK    │ │
+│  │              │  │              │  │  (Coming Soon)│ │
+│  └──────────────┘  └──────────────┘  └──────────────┘ │
+│          │                 │                 │          │
+│          └─────────────────┴─────────────────┘          │
+│                          │                               │
+│                ┌─────────┴──────────┐                   │
+│                │  OTEL Collector    │                   │
+│                │  (Optional)        │                   │
+│                └─────────┬──────────┘                   │
+│                          │                               │
+│         ┌────────────────┼────────────────┐            │
+│         │                │                │            │
+│    ┌────▼────┐    ┌─────▼─────┐   ┌─────▼─────┐     │
+│    │ SQLite  │    │  DuckDB   │   │TimescaleDB│     │
+│    │(Offline)│    │(Analytics)│   │(Production)│     │
+│    └─────────┘    └───────────┘   └───────────┘     │
+│                                                          │
+│    ┌──────────────────────────────────────────────┐    │
+│    │         API Server (FastAPI)                 │    │
+│    │  • REST & GraphQL endpoints                  │    │
+│    │  • WebSocket for real-time                   │    │
+│    │  • Background workers                        │    │
+│    └──────────────────────────────────────────────┘    │
+│                          │                               │
+│    ┌─────────────────────▼──────────────────────────┐  │
+│    │     Dashboard (React + TypeScript + Vite)     │  │
+│    │  • Real-time metrics                          │  │
+│    │  • Causal graph visualization                 │  │
+│    │  • Memory performance heatmaps                │  │
+│    │  • Conflict analysis matrix                   │  │
+│    └───────────────────────────────────────────────┘  │
+│                                                          │
+└─────────────────────────────────────────────────────────┘
 ```
 
 ## 💰 Pricing
