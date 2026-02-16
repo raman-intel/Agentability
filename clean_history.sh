@@ -12,7 +12,7 @@ echo "║  Semantic, Honest, Current Timestamps                          ║"
 echo "╚════════════════════════════════════════════════════════════════╝"
 echo ""
 
-REPO_PATH="${1:-C:/Users/raman/Downloads/agentdyne9/AGENTABILITY}"
+REPO_PATH="/home/opc/new/Agentability"
 cd "$REPO_PATH" || exit 1
 
 echo "📁 Repository: $REPO_PATH"
@@ -382,6 +382,6 @@ echo "✅ Current timestamps (not backdated)"
 echo "✅ Team attribution maintained"
 echo ""
 echo "📤 Ready to push:"
-echo "   git remote add origin https://github.com/yourusername/AGENTABILITY.git"
+echo "   git remote add origin https://github.com/raman-intel/Agentability.git"
 echo "   git push -u origin main"
 echo "   git push --tags"
